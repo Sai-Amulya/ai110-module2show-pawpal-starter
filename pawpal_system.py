@@ -1,6 +1,7 @@
 from dataclasses import dataclass, field
 from typing import List, Dict, Optional
 from datetime import date
+from uuid import uuid4
 
 # -------------------------
 # Core Data Objects
@@ -8,6 +9,7 @@ from datetime import date
 
 @dataclass
 class Task:
+    id: str = field(default_factory=lambda: str(uuid4()))
     name: str
     duration: float
     priority: str
@@ -30,6 +32,7 @@ class Pet:
     name: str
     species: str
     age: int
+    owner: 'Owner' 
     tasks: List[Task] = field(default_factory=list)
 
     def add_task(self, task: Task):
@@ -83,7 +86,10 @@ class Schedule:
 
     def display(self):
         pass
-
+    
+    def list_pets(self) -> List[Pet]:
+        """Return a list of unique pets from the scheduled tasks."""
+        return list({task.pet for task in self.tasks})
 
 class Scheduler:
     def __init__(self, tasks: List[Task], constraints: Optional[Dict] = None):
@@ -101,3 +107,4 @@ class Scheduler:
 
     def generate_daily_plan(self, owner: Owner, schedule_date: date) -> Schedule:
         pass
+
