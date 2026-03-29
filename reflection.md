@@ -12,11 +12,23 @@ iii. View today’s plan with explanations
 
 - Briefly describe your initial UML design.
 - What classes did you include, and what responsibilities did you assign to each?
+My initial UML design for PawPal+ included five main classes with the following responsibilities:
+
+Task – Represents a pet care activity. It stores information such as name, duration, priority, associated pet, and optional time window. It can update its details, check if it fits in available time, and provide a readable description.
+Pet – Represents a pet. It stores basic information (name, species, age) and a list of tasks. It can add, remove, or list tasks for the pet.
+Owner – Represents the pet owner. It stores the owner’s name, available time, preferences, and the list of pets. It can add pets, update preferences, and provide the owner’s available time for scheduling.
+Schedule – Represents a daily plan for the owner. It stores the date, owner, scheduled tasks, and explanations for decisions. It can generate the plan, add or remove tasks, explain scheduling choices, and display the schedule clearly.
+Scheduler – Acts as the logic engine to create schedules. It can sort tasks by priority, fit tasks into the day, resolve conflicts, and generate a complete daily schedule for an owner.
 
 **b. Design changes**
 
 - Did your design change during implementation?
 - If yes, describe at least one change and why you made it.
+
+Change 1: Owner ↔ Pet bidirectional link
+
+Problem: Pet doesn’t know which Owner it belongs to, so navigating from a Pet to its Owner (for scheduling or preference checks) is impossible.
+Solution: Add an owner attribute to Pet
 
 ---
 
