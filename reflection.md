@@ -1,6 +1,12 @@
 # PawPal+ Project Reflection
 
 ## 1. System Design
+i. Add and manage pet care tasks
+    Create, edit, or delete tasks like feeding, walks, medication, grooming, etc., including details such as duration and priority.
+ii. Generate a daily care schedule
+    Automatically create a daily plan based on available time, task priorities, and user preferences.
+iii. View today’s plan with explanations
+    See a clear list of scheduled tasks for the day along with reasoning (e.g., why certain tasks were prioritized or scheduled at specific times).
 
 **a. Initial design**
 
